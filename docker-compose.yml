@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  backend:
+    build:
+      dockerfile: Dockerfile-backend
+    ports:
+      - "5000"
+    networks:
+      - backnet
+  frontend:
+    build:
+      dockerfile: Dockerfile-frontend
+    links:
+      - "backend:backend"
+    ports:
+      - "80:80"
+    networks:
+      - backnet
+      - frontnet
+networks:
+  backnet:
+  frontnet:

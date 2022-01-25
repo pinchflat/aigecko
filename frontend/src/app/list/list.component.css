@@ -1,0 +1,48 @@
+
+.image-list, .upload-form {
+    background-color: #e0e0e0;
+    padding: 1rem;
+}
+
+.image-list, .upload-form > .title {
+    background-color: white;
+    border-radius: .5rem;
+    font-weight: bolder;
+    padding: .5rem;
+    margin-bottom: .5rem;
+}
+
+.image-list img{
+    height: 2rem;
+}
+
+.image-list > .images {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #cccccc;
+    border-radius: .5rem;
+    padding: .5rem;
+}
+
+.image-list > .images .image {
+    color: #255245;
+    cursor: pointer;
+    padding: .2rem;
+    font-weight: bolder;
+}
+
+.image-list > .images .image:hover {
+    color: black;
+}
+
+.image-list > .images .image::before {
+    content:'\27A2 ';
+}
+
+.image-list > .toolbar {
+    margin-top: 0.5rem;
+    text-align: right;
+}
+
+.upload-form .file-input {
+    display: none;
+}

@@ -1,0 +1,9 @@
+.toolbar {
+    background-color: white;
+    height: 50px;
+    border-bottom: 1px solid darkgray;
+}
+.toolbar > img {
+    height: 45px;
+    vertical-align: baseline;
+}

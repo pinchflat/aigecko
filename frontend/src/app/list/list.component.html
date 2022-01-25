@@ -1,0 +1,29 @@
+<div class="image-list" *ngIf="!this.isUploadFormVisible">
+    <div class="title">Uploaded Images<img *ngIf="this.loading" src="assets/loading.gif"/></div>
+    <div class="images">
+        <div class="image" *ngIf="this.images.length ==0">Please upload at least one image!</div>
+        <div *ngFor="let image of images">
+            <div (click)="analyseImage(image)" class="image">
+                {{image}}
+                <span>{{getImageSize(image)}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="toolbar">
+        <button (click)="showUploadForm()">Upload New Image</button>
+    </div>
+</div>
+<div class="upload-form" *ngIf="this.isUploadFormVisible">
+    <div class="title">Upload Image</div>
+    <div class="form">
+        <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+        <div class="file-upload">
+            {{fileName || "No file uploaded yet."}}
+            <button class="upload-btn"
+               (click)="fileUpload.click()">
+                Upload File
+             </button>
+         </div>
+  
+    </div>
+</div>

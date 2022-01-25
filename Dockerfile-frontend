@@ -1,0 +1,15 @@
+FROM nginx:latest as build
+
+RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
+RUN apt install nodejs && npm install -g @angular/cli 
+
+WORKDIR /srv/frontend
+COPY frontend/ ./
+
+RUN npm rebuild node-sass && ng build --configuration=production
+
+FROM nginx:latest AS release
+
+HEALTHCHECK CMD curl --fail http://localhost || exit 1   
+COPY conf/nginx/ /etc/nginx/conf.d/
+COPY --from=build /srv/frontend/dist/frontend/ /usr/share/nginx/html/
