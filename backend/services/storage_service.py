@@ -45,20 +45,6 @@ def getImageDimensions(imageId):
     except IOError as err:
         raise StorageServiceException(True, 'Storage error!')
 
-def listImages():
-    try:
-        filePath = os.path.join(STORAGE_PATH,imageId)
-
-        if (os.path.exists(filePath)):
-            if (os.path.isfile(filePath)):
-                return Image.open(filePath).size
-            else:
-                raise StorageServiceException(True, imageId + ' is directory!')        
-        else:
-            raise StorageServiceException(False, imageId + ' does not exists!')    
-    except IOError as err:
-        raise StorageServiceException(True, 'Storage error!')
-
 def loadStoredImageNames():
     try:
         return [f for f in os.listdir(STORAGE_PATH) if os.path.isfile(os.path.join(STORAGE_PATH, f))]
