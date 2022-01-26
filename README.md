@@ -90,7 +90,7 @@ Receives image identifier, returns image dimensions.
 | Code | Description |
 | :--  | :--     |
 | 200  | Successul request |
-| 400  | Image does not exists for provided image id |
+| 400  | Image does not exist for provided image id |
 | 500  | Internal server error |
 
 For failures service will return only `message` field.
